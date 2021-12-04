@@ -1,0 +1,11 @@
+@import "../variables.scss";
+
+#main {
+  position: relative;
+  display: block;
+  padding: 1rem 2rem;
+  min-height: calc(
+    100% - 2rem - #{$footer-height} - #{$header-height} - #{$footer-padding-h} -
+      #{$footer-padding-h} - #{$header-padding-h} - #{$header-padding-h}
+  );
+}

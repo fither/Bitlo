@@ -1,0 +1,10 @@
+#login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+
+  .mat-form-field {
+    display: block;
+  }
+}

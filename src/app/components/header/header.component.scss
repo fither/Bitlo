@@ -1,0 +1,27 @@
+@import "../../../variables.scss";
+
+#header {
+  background-color: #0a2363;
+  color: #fff !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $header-height;
+  position: relative;
+  padding: $header-padding-h $header-padding-w;
+
+  .logo {
+    position: relative;
+    height: 100%;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}

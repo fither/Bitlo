@@ -1,0 +1,16 @@
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+
+  .employee-card {
+    width: 25%;
+    height: 50%;
+    text-align: center;
+
+    a {
+      margin: 0.5rem 0;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<div id="login">
+  <div class="login-form">
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>
+          E-Mail
+        </mat-label>
+        <input matInput type="email" [formControl]="identifier" required placeholder="E-Mail">
+        <mat-error *ngIf="identifier.invalid">
+          {{ getIdentifierErrorMessage() }}
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>
+          Password
+        </mat-label>
+        <input matInput [formControl]="password" [type]="passwordHide ? 'password' : 'text'" type="password" required
+          placeholder="Password">
+        <button mat-icon-button matSuffix (click)="passwordHide = !passwordHide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="passwordHide">
+          <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="password.invalid">
+          {{ getPasswordErrorMessage() }}
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <button mat-raised-button color="primary" (click)="login()" [disabled]="identifier.invalid || password.invalid">
+        Giriş Yap
+      </button>
+    </p>
+    <mat-error *ngIf="identifier.value === '' && password.value === ''">
+      Lütfen gerekli alanları doldurunuz
+    </mat-error>
+    <mat-error *ngIf="loginError !== ''">
+      {{ loginError }}
+    </mat-error>
+  </div>
+</div>

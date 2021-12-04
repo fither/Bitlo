@@ -1,0 +1,22 @@
+@import "../../../variables.scss";
+
+#footer {
+  background-color: #0a2363;
+  color: #fff !important;
+  height: $footer-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: $footer-padding-h $footer-padding-w;
+
+  .account-info {
+  }
+
+  .external-url {
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}
