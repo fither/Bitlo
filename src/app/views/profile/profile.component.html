@@ -1,1 +1,74 @@
-<p>profile works!</p>
+<div id="profile">
+  <div class="profile-info">
+    <table 
+      *ngIf="_authService.me"
+      class="mat-table cdk-table mat-elevation-z8"
+      role="table"
+    >
+      <tbody class="rowgroup">
+        <tr class="mat-row cdk-row">
+          <th class="mat-header-cell cdk-header-cell">
+            Firstname
+          </th>
+          <td class="mat-cell cdk-cell">
+            {{ _authService.me.firstName }}
+          </td>
+        </tr>
+        <tr class="mat-row cdk-row">
+          <th class="mat-header-cell cdk-header-cell">
+            Lastname
+          </th>
+          <td class="mat-cell cdk-cell">
+            {{ _authService.me.lastName }}
+          </td>
+        </tr>
+        <tr class="mat-row cdk-row">
+          <th class="mat-header-cell cdk-header-cell">
+            Date Of Birth
+          </th>
+          <td class="mat-cell cdk-cell">
+            {{ _authService.me.dateOfBirth }}
+          </td>
+        </tr>
+        <tr class="mat-row cdk-row">
+          <th class="mat-header-cell cdk-header-cell">
+            Phone Number
+          </th>
+          <td class="mat-cell cdk-cell">
+            {{ formatPhoneNumber(_authService.me.phoneNumber) }}
+          </td>
+        </tr>
+        <tr class="mat-row cdk-row">
+          <th class="mat-header-cell cdk-header-cell">
+            Identity Number
+          </th>
+          <td class="mat-cell cdk-cell">
+            {{ _authService.me.identityNumber }}
+          </td>
+        </tr>
+        <tr class="mat-row cdk-row">
+          <th class="mat-header-cell cdk-header-cell">
+            Update Date
+          </th>
+          <td class="mat-cell cdk-cell">
+            {{ _authService.me.updateDate }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="profile-external-links">
+      <a
+        mat-button
+        routerLink="/profile/balances"
+      >
+        Bakiyeler
+      </a>
+      <a
+        mat-button
+        routerLink="/profile/open-orders"
+      >
+        Açık Emirler
+      </a>
+    </p>
+  </div>
+</div>

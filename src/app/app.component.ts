@@ -1,6 +1,7 @@
 import { StorageService } from './services/storage/storage.service';
 import { AuthService } from './services/auth/auth-service.service';
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +17,15 @@ export class AppComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
+    
+    // init axios
+    axios.defaults.baseURL = 'https://akademi-cp.bitlo.com/api/interview';
+    
+    // if token exist make it logged in
     const token = this._storageService.getToken();
     if(!token) return;
-
+    
     this._authService.setTokenOnAxios(token);
+    this._authService.isLogged = true;
   }
 }

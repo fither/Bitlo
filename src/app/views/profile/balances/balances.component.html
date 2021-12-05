@@ -1,0 +1,65 @@
+<div id="balances">
+  <p>
+    <mat-checkbox 
+      [(ngModel)]="hideLowBalances"
+      (ngModelChange)="toggleShowBalances()"
+      class="example-margin"
+    >
+      Düşük Bakiyeleri Göster / Gizle
+    </mat-checkbox>
+  </p>
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8"
+    *ngIf="dataSource.filteredData.length"
+  >
+    <ng-container matColumnDef="logo">
+      <th mat-header-cell *matHeaderCellDef>
+        Logo
+      </th>
+      <td mat-cell *matCellDef="let item">
+        <img 
+          [src]="getLogo(item.assetCode)" 
+          [alt]="item.assetCode"
+        >
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="assetCode">
+      <th mat-header-cell *matHeaderCellDef>
+        Asset Code
+      </th>
+      <td mat-cell *matCellDef="let item">
+        {{ item.assetCode }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="availableAmount">
+      <th mat-header-cell *matHeaderCellDef>
+        Available Amount
+      </th>
+      <td mat-cell *matCellDef="let item">
+        {{ formatter.format(item.availableAmount) }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="availableAmountTRYValue">
+      <th mat-header-cell *matHeaderCellDef>
+        Available Amount TRY
+      </th>
+      <td mat-cell *matCellDef="let item">
+        {{ formatterTRY.format(item.availableAmountTRYValue) }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label=""
+  ></mat-paginator>
+</div>

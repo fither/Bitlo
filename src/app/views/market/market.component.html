@@ -1,0 +1,27 @@
+<div id="market">
+  <div class="market-logo">
+    <img [src]="marketLogo">
+  </div>
+  <ul>
+    <li>
+      {{ market.marketCode.split('-').join('/') }}
+    </li>
+    <li>
+      {{ formatter.format(market.currentQuote) }}
+    </li>
+    <li>
+      {{ formatter.format(market.change24h) }}
+    </li>
+    <li>
+      <span [class]="getColorForPercent(market.change24hPercent)">
+        %{{ formatter.format(market.change24hPercent) }}
+      </span>
+    </li>
+    <li>
+      {{ formatter.format(market.highestQuote24h) }}
+    </li>
+    <li>
+      {{ formatter.format(market.lowestQuote24h) }}
+    </li>
+  </ul>
+</div>

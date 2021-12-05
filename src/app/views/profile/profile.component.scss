@@ -1,0 +1,20 @@
+#profile {
+  .profile-info {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    table {
+      height: 75%;
+      padding: 0 2rem;
+    }
+
+    .profile-external-links {
+      display: flex;
+      width: 45%;
+      justify-content: space-around;
+    }
+  }
+}
