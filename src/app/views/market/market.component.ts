@@ -18,7 +18,7 @@ export class MarketComponent implements OnInit {
   ) { }
 
   getColorForPercent(percent: number) {
-    return percent > 0 ? 'color-green' : percent == 0 ? 'color-black' : 'color-red';
+    return percent > 0 ? 'color-green' : percent == 0 ? 'color-black' : 'red';
   }
 
   async ngOnInit(): Promise<void> {

@@ -29,6 +29,7 @@ import { StoreModule } from '@ngrx/store';
 import { MarketsComponent } from './views/markets/markets.component';
 import { MarketComponent } from './views/market/market.component';
 import { BalancesComponent } from './views/profile/balances/balances.component';
+import { OpenOrdersComponent } from './views/profile/open-orders/open-orders.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { BalancesComponent } from './views/profile/balances/balances.component';
     ProfileComponent,
     MarketsComponent,
     MarketComponent,
-    BalancesComponent
+    BalancesComponent,
+    OpenOrdersComponent
   ],
   imports: [
     BrowserModule,

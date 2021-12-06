@@ -1,6 +1,11 @@
 #markets {
-  .mat-table {
+  .market-table {
     width: 100%;
+    overflow: auto;
+
+    .mat-table {
+      width: 100%;
+    }
 
     .table-link {
       color: #000;

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { IMe, IMeResponse } from 'src/app/views/profile/profile.component';
 import { ILoginResponse } from 'src/app/interfaces/loginResponse';
 import { IBalance, IBalanceResponse } from 'src/app/views/profile/balances/balances.component';
+import { IOpenOrder, IOpenOrderResponse } from 'src/app/views/profile/open-orders/open-orders.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class AuthService {
   isLogged: boolean = false;
   me: IMe | null = null;
   balances: IBalance[] = [];
+  openOrders: IOpenOrder[] = [];
 
   constructor(
     private _storageService: StorageService,
@@ -26,6 +28,16 @@ export class AuthService {
 
   removeTokenOnAxios() {
     axios.defaults.headers.common['x-bittlo-auth'] = '';
+  }
+
+  async getOpenOrders() {
+    const token = this._storageService.getToken();
+    if(!token) return;
+
+    const response = await axios.post('/auth/open-orders');
+    const data: IOpenOrderResponse = response.data;
+    this.openOrders = data.openOrders;
+
   }
 
   async getBalances() {

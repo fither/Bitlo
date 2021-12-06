@@ -27,7 +27,7 @@
             Date Of Birth
           </th>
           <td class="mat-cell cdk-cell">
-            {{ _authService.me.dateOfBirth }}
+            {{ formatDate(_authService.me.dateOfBirth) }}
           </td>
         </tr>
         <tr class="mat-row cdk-row">
@@ -51,7 +51,7 @@
             Update Date
           </th>
           <td class="mat-cell cdk-cell">
-            {{ _authService.me.updateDate }}
+            {{ formatDate(_authService.me.updateDate) }}
           </td>
         </tr>
       </tbody>

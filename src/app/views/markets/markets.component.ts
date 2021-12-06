@@ -80,6 +80,7 @@ export class MarketsComponent implements OnInit {
     let btc_try: number = 0;
     let usdt_try: number = 0;
     this.dataSource.filteredData.map((market: IMarket, index: number) => {
+      const marketCurrentQuote: number = parseFloat('' + market.currentQuote);
       if(market.change24hPercent > 0) {
         this.infos.change24hPercent += 1
       }
@@ -94,27 +95,27 @@ export class MarketsComponent implements OnInit {
         this.infos.leastChange24hPercent.marketCode = market.marketCode;
       }
 
-      if(market.currentQuote > 10000) {
+      if(marketCurrentQuote > 10000) {
         this.infos.currentQuoteHigherThan10k += 1;
       }
 
-      if(market.currentQuote < 1) {
+      if(marketCurrentQuote < 1) {
         this.infos.currentQuoteLesserThan1 += 1;
       }
 
       if(market.marketCode === 'BTC-TRY') {
-        btc_try = market.currentQuote;
+        btc_try = marketCurrentQuote;
       }
 
       if(market.marketCode === 'USDT-TRY') {
-        usdt_try = market.currentQuote;
+        usdt_try = marketCurrentQuote;
       }
 
-      allCurrentQuotes += market.currentQuote;
+      allCurrentQuotes += marketCurrentQuote;
     });
 
-    this.infos.averageCurrentQuote = Math.round(allCurrentQuotes / this.markets.length);
-    this.infos.equality = Math.round(btc_try / usdt_try);
+    this.infos.averageCurrentQuote = Math.round((allCurrentQuotes / this.markets.length) * 100) / 100;
+    this.infos.equality = Math.round((btc_try / usdt_try) * 100) / 100;
   }
 
   search() {
